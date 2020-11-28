@@ -2,6 +2,12 @@
 # -*- coding: utf-8 -*-
 """
 Module docstring: One line description of what your program does.
+Looks to see if expressions have their counterparts. Properly nested.
+()
+[]
+{}
+<>
+(**)
 """
 __author__ = "kamela williamson"
 # study hall on Tuesday night with Piero & group
