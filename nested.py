@@ -5,6 +5,7 @@ Module docstring: One line description of what your program does.
 """
 __author__ = "kamela williamson"
 # study hall on Tuesday night with Piero & group
+
 import sys
 
 
@@ -29,22 +30,23 @@ def is_nested(line):
         if token in closers:
             # locate the token in the closers
             # use that location to find opening buddy
-            if stack.pop() != openers[closers.index(token)]:
+            expected_index = closers.index(token)
+            expected_opener = openers[expected_index]
+            if stack.pop() != expected_opener:
+
                 print("NO", count)
                 return
-            line = line[len(token):]
-            # final stack check
-            if stack:
-                print("NO", count)
-            else:
-                print("YES")
+        line = line[len(token):]
+# final stack check
+    if len(stack) > 0:
+        print("NO", count)
+    else:
+        print("YES")
 
 
 def main(args):
     """Open the input file and call `is_nested()` for each line"""
-    # Results: print to console and also write to output file
     with open(args[0]) as f:
-        # file is open now. opening file & reading line by line
         for line in f:
             is_nested(line)
 
