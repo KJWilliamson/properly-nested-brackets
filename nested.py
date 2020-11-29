@@ -2,12 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 Module docstring: One line description of what your program does.
-Looks to see if expressions have their counterparts. Properly nested.
-()
-[]
-{}
-<>
-(**)
+Reads lines in input.txt  & writes to output.txt
 """
 __author__ = "kamela williamson"
 # study hall on Tuesday night with Piero & group
@@ -52,10 +47,11 @@ def is_nested(line):
 
 def main(args):
     """Open the input file and call `is_nested()` for each line"""
-    with open(args[0]) as f:
-        for line in f:
-            is_nested(line)
-
+    with open(args[0], 'r') as f:
+        with open('output.txt', 'w') as output:
+            for line in f:
+                output.write(str(is_nested(line)) + '\n')
+                                 
 
 if __name__ == '__main__':
     main(sys.argv[1:])
