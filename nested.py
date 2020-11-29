@@ -40,18 +40,18 @@ def is_nested(line):
         line = line[len(token):]
 # final stack check
     if len(stack) > 0:
-        print("NO", count)
+        return ("NO " + str(count))
     else:
-        print("YES")
+        return "YES"
 
 
 def main(args):
     """Open the input file and call `is_nested()` for each line"""
-    with open(args[0], 'r') as f:
+    with open('input.txt', 'r') as f:
         with open('output.txt', 'w') as output:
             for line in f:
                 output.write(str(is_nested(line)) + '\n')
-                                 
+
 
 if __name__ == '__main__':
     main(sys.argv[1:])
