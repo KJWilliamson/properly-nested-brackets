@@ -6,6 +6,7 @@ Reads lines in input.txt  & writes to output.txt
 """
 __author__ = "kamela williamson"
 # study hall on Tuesday night with Piero & group
+# Britt helped with output. I needed to return on line 40
 
 import sys
 
@@ -35,8 +36,8 @@ def is_nested(line):
             expected_opener = openers[expected_index]
             if stack.pop() != expected_opener:
 
-                print("NO", count)
-                return
+                # print("NO", count)
+                return ("NO " + str(count))
         line = line[len(token):]
 # final stack check
     if len(stack) > 0:
@@ -47,10 +48,12 @@ def is_nested(line):
 
 def main(args):
     """Open the input file and call `is_nested()` for each line"""
-    with open('input.txt', 'r') as f:
+    with open(args[0], 'r') as f:
         with open('output.txt', 'w') as output:
             for line in f:
-                output.write(str(is_nested(line)) + '\n')
+                result = is_nested(line)
+                print(result)
+                output.write(result + '\n')
 
 
 if __name__ == '__main__':
